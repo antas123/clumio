@@ -13,7 +13,7 @@ const Pagination =({page, setPage, totalPages})=>{
         setPage((x) => x + 1)
         window.scrollTo({ top: 0, behavior: 'smooth' }); 
     }
-console.log(totalPages,'jiko')
+    
 return (
     <div className={styles.paginationContainer}>
     <button

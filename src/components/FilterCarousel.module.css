@@ -10,7 +10,8 @@
 
   .hero{
     border-radius:100%;
-     margin-left: 10px;
+     margin-left: 5px;
+     margin-right: 5px;
      border: 2px solid grey;
   }
   
@@ -41,6 +42,15 @@
   .heroImgSelected{
     filter: none;
      cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 99px;
+     border: 1px solid black;
+     width: 120px;
+     height: 120px;
+     background-color: lightgray;
+     margin: 0px 5px;
   }
   
   .heroImgContainer:not(:hover) {
@@ -92,12 +102,22 @@
       padding: 5px 10px;
     }
   }
-
+.filterBtn{
+  text-align: right;
+  padding: 0px 100px 25px 0px;
+}
   .container{
     background-color:#232D3F;
     padding:10px 0px;
     width:100%;
-    margin:'auto'
+    margin:auto;
+    min-height: 100vh;
+    background-image: url('https://wallpapercave.com/wp/wp3703412.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
   }
 .subContainer{
     display:flex; 
@@ -134,7 +154,7 @@
   margin: 0 5px;
   border-radius: 30px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -144,12 +164,12 @@
 }
 
 .paginationButton:disabled {
-  background-color: #ccc;
+  background-color: grey;
   cursor: not-allowed;
 }
 
 .paginationCounter {
-  font-size: 18px;
+  font-size: 15px;
   margin: 0 10px;
   color: white;
 }
@@ -196,6 +216,7 @@
   padding: 10px 20px; 
   border: none; 
   cursor: pointer;
+  border: 1px solid white;
 }
 .removeFilter:hover {
   background-color: #555;

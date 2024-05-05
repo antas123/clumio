@@ -13,14 +13,12 @@ const Carousel = ({
     const box = carouselRef.current;
     let width = box.clientWidth;
     box.scrollLeft = box.scrollLeft - width;
-    console.log(width);
   };
 
   const btnpressnext = () => {
     const box = carouselRef.current;
     let width = box.clientWidth;
     box.scrollLeft = box.scrollLeft + width;
-    console.log(width);
   };
 
   const handleHeroSelected = (heroId) => {
