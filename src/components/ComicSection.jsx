@@ -25,7 +25,8 @@ const ComicSection = ({
 }) => {
   const [heroesForCarousel, setHeroesForCarousel] = useState([]); //used for displaying heroes on carousel
   const [dataFilteredByCarousel, setDataFilteredByCarousel] = useState([]); //to display filtered data , filtered by carousel heroes selection
-
+  const [carouselRightPosition, setCarouselRightPosition] = useState(false)
+  const [carouselPage, setCarouselPage] = useState(1)
   const removeFilters = () => {
     setSearchTerm("");
     setDataFilteredByCarousel([]);
@@ -38,13 +39,19 @@ const ComicSection = ({
   };
 
   //useQuerY for data fetching========================================================================
-  const { data: carouselData } = useQuery({
-    queryKey: ["heroesOnCarousel"],
-    queryFn: fetchCarouselHeroes,
+  const { data: carouselData, isLoading: isCarouselLoading } = useQuery({
+    queryKey: ["heroesOnCarousel", carouselRightPosition,carouselPage],
+    queryFn: ()=>fetchCarouselHeroes(carouselPage,setCarouselRightPosition),
+    // enabled: !carouselRightPosition 
   });
 
   useEffect(() => {
-    setHeroesForCarousel(carouselData?.data?.results);
+    if (carouselData?.data?.results) {
+      // Spread the new results into heroesForCarousel
+      console.log('aaa', heroesForCarousel, carouselData.data.results)
+      const newArr = [...heroesForCarousel, ...carouselData.data.results];
+      setHeroesForCarousel(newArr);
+    }
   }, [carouselData]);
 
   return (
@@ -54,6 +61,10 @@ const ComicSection = ({
         heroesForCarousel={heroesForCarousel}
         selectedHeroesList={selectedHeroesList}
         setSelectedHeroesList={setSelectedHeroesList}
+        setCarouselRightPosition={setCarouselRightPosition}
+        setCarouselPage={setCarouselPage}
+        carouselPage={carouselPage}
+        isCarouselLoading={isCarouselLoading}
       />
       <div className={styles.container}>
         {isPageLoading ? (

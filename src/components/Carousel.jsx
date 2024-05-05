@@ -6,6 +6,10 @@ const Carousel = ({
   heroesForCarousel,
   selectedHeroesList,
   setSelectedHeroesList,
+  setCarouselRightPosition,
+  setCarouselPage,
+  carouselPage,
+  isCarouselLoading,
 }) => {
   const carouselRef = useRef(null);
 
@@ -19,6 +23,11 @@ const Carousel = ({
     const box = carouselRef.current;
     let width = box.clientWidth;
     box.scrollLeft = box.scrollLeft + width;
+    console.log(box.scrollLeft, box.clientWidth, box.scrollWidth, "k");
+    if (box.scrollLeft + box.clientWidth >= box.scrollWidth - 300) {
+      setCarouselRightPosition(true);
+      setCarouselPage(carouselPage + 1);
+    }
   };
 
   const handleHeroSelected = (heroId) => {
@@ -80,9 +89,16 @@ const Carousel = ({
           </div>
         ))}
       </div>
-      <button className={styles.carouselButtonL} onClick={btnpressnext}>
-        {">"}
-      </button>
+      {!isCarouselLoading ? (
+        <button className={styles.carouselButtonL} onClick={btnpressnext}>
+          {">"}
+        </button>
+      ) : (
+        <>
+        <div className={styles.loader}></div>
+        <h6>Loading more heroes...</h6>
+        </>
+      )}
     </div>
   );
 };

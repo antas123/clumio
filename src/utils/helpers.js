@@ -23,9 +23,10 @@ const baseURL2 = 'https://gateway.marvel.com/v1/public/'
   }
 
 // data fetching for heroers on carousel===================================
-export const fetchCarouselHeroes = async()=>{
-    const response = await fetch(`${baseURL2}characters?ts=1&apikey=${apiKey}&hash=${hash}`)
+export const fetchCarouselHeroes = async(page,setCarouselRightPosition)=>{
+    const response = await fetch(`${baseURL2}characters?ts=1&apikey=${apiKey}&hash=${hash}&offset=${page-1}&limit=${20}`)
     const jsonData = await response.json();
+    setCarouselRightPosition(false)
     return jsonData
 }  
 
