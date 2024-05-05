@@ -15,9 +15,9 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ## Features build
-#1) Infinite scroll for carousel
-#2) Pagination (backend driven)
-#3) Search Bar filter (api based) and Carousel based filter (api based)
+1) Infinite scroll for carousel
+2) Pagination (backend driven)
+3) Search Bar filter (api based) and Carousel based filter (api based)
 
 # some points
 1) used raw css only
