@@ -1,0 +1,26 @@
+    .cardContainer h5 {
+    color: #333;
+    text-align: center;
+    margin: 0px;
+  }
+  
+  .cardContainer {
+    height: 300px;
+    width: 220px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .cardContainer:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+  .cardContainer:hover h5 {
+    color: grey; /* Change the color on hover */
+  }
+  
+  
